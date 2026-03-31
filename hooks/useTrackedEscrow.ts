@@ -38,11 +38,15 @@ export type ApproveDealTrackedResult = {
 const APP_ID = "app-009";
 const APP_NAME = "BaseEscrowLite";
 
-// Replace with a real Builder Code for production attribution.
-// BUILDER_CODE_PLACEHOLDER
-export const DATA_SUFFIX = Attribution.toDataSuffix({
-  codes: ["BUILDER_CODE_PLACEHOLDER"]
+export const BUILDER_CODE = "bc_v6gmm9la";
+export const DATA_SUFFIX_ENCODED =
+  "0x62635f7636676d6d396c610b0080218021802180218021802180218021";
+
+export const DATA_SUFFIX_FROM_CODE = Attribution.toDataSuffix({
+  codes: [BUILDER_CODE]
 });
+
+export const DATA_SUFFIX: Hex = DATA_SUFFIX_ENCODED;
 
 export function useTrackedEscrow() {
   const { writeContractAsync } = useWriteContract();
